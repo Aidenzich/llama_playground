@@ -3,39 +3,43 @@
 
 ## Install
 ```bash
+git submodule init
+git submodule update --remote
 make install
 ```
 
-## Download
-See [LLaMA](https://github.com/facebookresearch/llama) for details.
-Or use [download link](https://github.com/shawwn/llama-dl).
+### Introduction of Modules
+| Module | Description |
+|-|-|
+| [llama](https://github.com/Aidenzich/llama) | A fork of the original version of [facebook's llama](https://github.com/facebookresearch/llama) |
+| [llama.cpp](https://github.com/Aidenzich/llama.cpp) | The work done by [ggerganov](https://github.com/ggerganov/llama.cpp) is amazing, as it allows LLaMA to run on a CPU. We change a little bit to make it work on this playground. |
 
+## Download Models
+See [LLaMA](https://github.com/facebookresearch/llama) for details.
+Or use [download repo made by shawwn](https://github.com/shawwn/llama-dl).
 
 ## Usage
-```bash
+### Testing on GPU
+```sh
 # obtain the original LLaMA model weights and place them in ./models
 ls ./models
-65B 30B 13B 7B tokenizer_checklist.chk tokenizer.model
+# Return:
+# 65B 30B 13B 7B tokenizer_checklist.chk tokenizer.model
 
-# convert the 7B model to ggml FP16 format
-python3 llama.cpp/convert-pth-to-ggml.py models/7B/ 1
+# The following command can be used to run the example with models of different sizes on a GPU.
+make 7B
+make 13B
+make 30B
+```
 
+### Testing on CPU
+```bash
 # quantize the model to 4-bits
-llama.cpp/quantize.sh 7B
+make quantize
 
-# run the inference
-llama.cpp/main -m models/65B/ggml-model-q4_0.bin -t 8 -n 128 -p "When is the sigularity going to kill us?"
+# run the inference example
+make cpu_infer
 
-llama.cpp/main -m models/65B/ggml-model-q4_0.bin -t 8 -n 1024 -p "What was the most frightening historical image you have ever seen?"
-```
-
-### Interaction Mode
-```
-llama.cpp/main -m ./models/30B/ggml-model-q4_0.bin -t 8 -n 2048 --repeat_penalty 1.0 --color -i -r "User:" \
-                                           -p \
-"Transcript of a dialog, where the User interacts with an Assistant named Bob. Bob is helpful, kind, honest, good at writing, and never fails to answer the User's requests immediately and with precision.
-
-User: Hello, Bob.
-Bob: Hello. How may I help you today?
-User:"
+# Let's talk with Bob(Interaction Mode)!
+make bob
 ```

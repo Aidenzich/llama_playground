@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ENV_NAME=llama; 
 cd llama; 
 conda create --name $ENV_NAME python=3.8 -y; 
