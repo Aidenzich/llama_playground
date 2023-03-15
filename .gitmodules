@@ -1,0 +1,6 @@
+[submodule "llama"]
+	path = llama
+	url = https://github.com/facebookresearch/llama
+[submodule "llama.cpp"]
+	path = llama.cpp
+	url = https://github.com/ggerganov/llama.cpp
