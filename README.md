@@ -12,21 +12,22 @@ make install
 | Module | Description |
 |-|-|
 | [llama](https://github.com/Aidenzich/llama) | A fork of the original version of [facebook's llama](https://github.com/facebookresearch/llama) |
-| [llama.cpp](https://github.com/Aidenzich/llama.cpp) | The work done by [ggerganov](https://github.com/ggerganov/llama.cpp) is amazing, as it allows LLaMA to run on a CPU. We change a little bit to make it work on this playground. |
+| [llama.cpp](https://github.com/Aidenzich/llama.cpp) | The work done by [ggerganov](https://github.com/ggerganov/llama.cpp) is amazing, as it allows LLaMA to run on CPUs. We change a little bit to make it work on this playground. |
 
 ## Download Models
 See [LLaMA](https://github.com/facebookresearch/llama) for details.
 Or use [download repo made by shawwn](https://github.com/shawwn/llama-dl).
 
 ## Usage
-### Testing on GPU
 ```sh
 # obtain the original LLaMA model weights and place them in ./models
 ls ./models
 # Return:
 # 65B 30B 13B 7B tokenizer_checklist.chk tokenizer.model
-
-# The following command can be used to run the example with models of different sizes on a GPU.
+```
+### Testing on GPU
+```sh
+# The following command can be used to run the example with models of different sizes on GPU.
 make 7B
 make 13B
 make 30B
