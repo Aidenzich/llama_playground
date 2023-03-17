@@ -5,7 +5,7 @@
 ```bash
 git submodule init
 git submodule update
-make install
+make install # We use conda as our environment management system
 ```
 
 ### Introduction of Modules
