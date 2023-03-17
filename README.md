@@ -4,7 +4,7 @@
 ## Install
 ```bash
 git submodule init
-git submodule update --remote
+git submodule update
 make install
 ```
 
