@@ -16,7 +16,7 @@ make install # We use conda as our environment management system
 
 ## Download Models
 See [LLaMA](https://github.com/facebookresearch/llama) for details.
-Or use [download repo made by shawwn](https://github.com/shawwn/llama-dl).
+
 
 ## Usage
 ```sh
